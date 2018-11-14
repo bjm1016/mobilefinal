@@ -12,7 +12,7 @@ function saveContact()
 	window.alert("0");
 	window.alert("1");
 	var numbers = [];
-/*	window.alert("2");
+	window.alert("2");
 	numbers[0] = new ContactField('work',document.getElementById("workNumber").value,false);
 	window.alert("3");
 	numbers[1] = new ContactField('mobile',document.getElementById("mobileNumber").value,true);
@@ -20,7 +20,7 @@ function saveContact()
 	numbers[2] = new ContactField('home',document.getElementById("homeNumber").value,false);
 	window.alert("5");
 	contact.phoneNumbers = numbers;
-	window.alert("6"); */
+	window.alert("6");
 	var name = new ContactName();
 	window.alert("7");
 	name.givenName = document.getElementById("firstName").value;
