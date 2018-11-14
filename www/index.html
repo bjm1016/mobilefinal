@@ -1,11 +1,24 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-        <title>Blank App</title>
-    </head>
-    <body>
-        <script type="text/javascript" src="cordova.js"></script>
-    </body>
+
+<head>
+	<script src="js/onload.js"></script>
+	<script src="js/contacts.js"></script>
+</head>
+
+<body>
+	<h2>Add a Contact</h2>
+	<input type="text" id="firstName">First name <br>
+	<input type="text" id="lastName">Last name <br>
+	<input type="text" id="workNumber">Work number <br>
+	<input type="text" id="mobileNumber">Mobile number <br>
+	<input type="text" id="homeNumber">Home number <br>
+	<br>
+	<button id="saveInfo">Save Contact Info</button>
+	<hr>
+	<h2>Search Contacts</h2>
+	<input type="text" id="searchBox">Search string <br>
+	<button id="searchButton">Search</button>
+</body>
+
 </html>
