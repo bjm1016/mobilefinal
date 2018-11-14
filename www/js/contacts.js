@@ -17,4 +17,5 @@ function saveContact()
 	contact.displayName = document.getElementById("firstName").value + " " + document.getElementById("lastName").value;
 	contact.save();
 	alert("Save button pushed");
+	document.write("done");
 }
