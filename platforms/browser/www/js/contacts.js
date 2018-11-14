@@ -13,11 +13,11 @@ function saveContact()
 	window.alert("1");
 	var numbers = [];
 	window.alert("2");
-	numbers[0] = new ContactField('work',document.getElementById("workNumber").value,false);
+	numbers[0] = new ContactField('work','123-456-7890',false);
 	window.alert("3");
-	numbers[1] = new ContactField('mobile',document.getElementById("mobileNumber").value,true);
+	numbers[1] = new ContactField('mobile','123-446-7890',true);
 	window.alert("4");
-	numbers[2] = new ContactField('home',document.getElementById("homeNumber").value,false);
+	numbers[2] = new ContactField('home','123-456-7790',false);
 	window.alert("5");
 	contact.phoneNumbers = numbers;
 	window.alert("6");
