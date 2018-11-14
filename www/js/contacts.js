@@ -40,7 +40,7 @@ function foundContacts(contacts)
 	var endString = "";
 	for (var i = 0; i < contacts.length; i++)
 	{
-		endString += contacts[i].name;
+		endString += contacts[i].displayName;
 	}
 	window.alert("End of foundContacts()");
 	document.getElementById("searchResults").innerHTML = endString;
