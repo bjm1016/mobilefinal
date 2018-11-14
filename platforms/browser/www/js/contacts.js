@@ -4,12 +4,12 @@ function onready()
 {
 	window.alert("PageLoaded");
 	document.getElementById("saveInfo").style.display = "inline-block";
+	var contact = navigator.contacts.create({"displayName": "New Contact"});
 }
 
 function saveContact()
 {
 	window.alert("0");
-	var contact = navigator.contacts.create({"displayName": "New Contact"});
 	window.alert("1");
 	var numbers = [];
 	window.alert("2");
