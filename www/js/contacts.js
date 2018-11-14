@@ -16,5 +16,5 @@ function saveContact()
 	contact.name = document.getElementById("firstName").value + " " + document.getElementById("lastName").value;
 	contact.displayName = document.getElementById("firstName").value + " " + document.getElementById("lastName").value;
 	contact.save();
-	this.value = "Pushed";
+	this.innerHTML = "Pushed";
 }
