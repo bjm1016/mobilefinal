@@ -1,3 +1,3 @@
 window.onload = function(){
-	document.getElementById("saveInfo").onclick = safeContact;
+	document.getElementById("saveInfo").onclick = saveContact;
 }
