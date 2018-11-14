@@ -11,15 +11,15 @@ function saveContact()
 {
 	window.alert("0");
 	window.alert("1");
-	var numbers = [];
+	var phoneNumbers = [];
 	window.alert("2");
-	numbers[0] = new ContactField('work','123-456-7890',false);
+	phoneNumbers[0] = new ContactField('work', document.getElementById("workNumber").value, false);
 	window.alert("3");
-	numbers[1] = new ContactField('mobile','123-446-7890',true);
+	phoneNumbers[1] = new ContactField('mobile', document.getElementById("mobileNumber").value, true);
 	window.alert("4");
-	numbers[2] = new ContactField('home','123-456-7790',false);
+	phoneNumbers[2] = new ContactField('home', document.getElementById("homeNumber").value, false);
 	window.alert("5");
-	contact.phoneNumbers = numbers;
+	contact.phoneNumbers = phoneNumbers;
 	window.alert("6");
 	var name = new ContactName();
 	window.alert("7");
