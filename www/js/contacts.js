@@ -2,7 +2,7 @@ document.addEventListener("deviceready",onready,false);
 
 function onready
 {
-	
+	document.getElementById("saveInfo").onclick = saveContact;
 }
 
 function saveContact()
