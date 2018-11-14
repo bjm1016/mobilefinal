@@ -8,6 +8,7 @@ function onready()
 
 function saveContact()
 {
+	window.alert("0");
 	var contact = navigator.contacts.create({"displayName": "New Contact"});
 	window.alert("1");
 	var numbers = [];
