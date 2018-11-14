@@ -4,6 +4,7 @@
         "uninstalled": []
     },
     "config_munge": {
+<<<<<<< HEAD
         "files": {
             "config.xml": {
                 "parents": {
@@ -711,4 +712,10 @@
         "cordova-plugin-vibration": "2.1.6",
         "cordova-plugin-whitelist": "1.2.2"
     }
+=======
+        "files": {}
+    },
+    "installed_plugins": {},
+    "dependent_plugins": {}
+>>>>>>> a429474c223ece56ff3fa33c38f9bf09fe05080b
 }

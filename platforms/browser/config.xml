@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.phonegap.helloworld" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:gap="http://phonegap.com/ns/1.0">
+<<<<<<< HEAD
     <feature name="Camera">
         <param name="browser-package" value="Camera" />
     </feature>
@@ -9,12 +10,18 @@
     <name>helloTest</name>
     <description>
         Hello World sample application that responds to the deviceready event.
+=======
+    <name>testBlank</name>
+    <description>
+        A blank PhoneGap app.
+>>>>>>> a429474c223ece56ff3fa33c38f9bf09fe05080b
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
         PhoneGap Team
     </author>
     <content src="index.html" />
     <access origin="*" />
+<<<<<<< HEAD
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -23,4 +30,6 @@
     <allow-intent href="geo:*" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
+=======
+>>>>>>> a429474c223ece56ff3fa33c38f9bf09fe05080b
 </widget>
