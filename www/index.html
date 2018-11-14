@@ -1,216 +1,24 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
-
-	
-
-<style>
-
-	table, th, td
-	{
-		border:1px solid black;
-		
-	}
-
-	.monthButton
-	{
-		width:100%;
-		height:75px;
-		text-align:center;
-		background-color:white;
-		transition-duration:0.25s;
-		border:none;
-	}
-	
-	.monthButton:hover
-	{
-		background-color:gray;
-	}
-	
-	.dayDay
-	{
-		font-size:18pt;
-	}
-
-	.center
-	{
-		text-align:center;
-	}
-	
-	th
-	{
-		width:10%;
-	}
-	
-</style>
-
-<head>
-<<<<<<< HEAD
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-    <!-- Good default declaration:
-    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        * Enable inline JS: add 'unsafe-inline' to default-src
-        * Enable eval(): add 'unsafe-eval' to default-src
-    * Create your own at http://cspisawesome.com
-    -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
-    <title>Hello World</title>
-</head>
-
-<body>
-	<h2>Add a Contact</h2>
-	<input type="text" id="firstName">First name <br>
-	<input type="text" id="lastName">Last name <br>
-	<input type="text" id="workNumber">Work number <br>
-	<input type="text" id="mobileNumber">Mobile number <br>
-	<input type="text" id="homeNumber">Home number <br>
-	<br>
-	<button id="saveInfo">Save Contact Info</button>
-	<hr>
-	<h2>Search Contacts</h2>
-	<input type="text" id="searchBox">Search string <br>
-	<button id="searchButton">Search</button>
-    <!--<div class="app">
-        <h1>PhoneGap</h1>
-        <div id="deviceready" class="blink">
-            <p class="event listening">Connecting to Device</p>
-            <p class="event received">Device is Ready</p>
-        </div>
-    </div> -->
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript">
-        app.initialize();
-    </script>
-</body>
-
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Blank App</title>
+		<script type="text/javascript" src="js/contacts.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript" src="cordova.js"></script>
+		<h2>Add a Contact</h2>
+		<input type="text" id="firstName" value="Aardvark">First name <br>
+		<input type="text" id="lastName" value="Anteater">Last name <br>
+		<input type="text" id="workNumber">Work number <br>
+		<input type="text" id="mobileNumber" value="1234567890">Mobile number <br>
+		<input type="text" id="homeNumber">Home number <br>
+		<br>
+		<button onclick="saveInfo()" id="saveInfo">Save Contact Info</button>
+		<hr>
+		<h2>Search Contacts</h2>
+		<input type="text" id="searchBox">Search string <br>
+		<button id="searchButton">Search</button>
+    </body>
 </html>
-=======
- <!--css/js files are also supported, you can
- refer them using relative path.
- Save all files first, including html file
- to use this feature. -->
- 
-	<title>Calendar</title>
-</head>
-
-<body>
-
-	<h1 class="center">
-	<span id="month">-month-</span>
-	<span id="year">-year-</span>
-	</h1>
-	<br>
-	
-	<table style="text-align:center;margin:auto">
-		<tr>
-			<td><button id="prevMonth" onclick=prevMonth()><--</button><button id="nextMonth" onclick=nextMonth()><--</button>
-		</tr>
-	</table>
-	
-	<!-- This table is the calendar layout -->
-	<table style="text-align:center; margin-left:auto; margin-right:auto">
-		<tr>
-			<th>Sunday</th>
-			<th>Monday</th>
-			<th>Tuesday</th>
-			<th>Wednesday</th>
-			<th>Thursday</th>
-			<th>Friday</th>
-			<th>Saturday</th>
-		</tr>
-		<tr>
-			<td><button class="monthButton" id="day1"><span class="dayDay" id="dayDay1">(1)</span></button>
-			<td><button class="monthButton" id="day2"><span class="dayDay" id="dayDay2">(2)</span></button>
-			<td><button class="monthButton" id="day3"><span class="dayDay" id="dayDay3">(3)</span></button>
-			<td><button class="monthButton" id="day4"><span class="dayDay" id="dayDay4">(4)</span></button>
-			<td><button class="monthButton" id="day5"><span class="dayDay" id="dayDay5">(5)</span></button>
-			<td><button class="monthButton" id="day6"><span class="dayDay" id="dayDay6">(6)</span></button>
-			<td><button class="monthButton" id="day7"><span class="dayDay" id="dayDay7">(7)</span></button>
-		</tr>
-		<tr>
-			<td><button class="monthButton" id="day8"><span class="dayDay" id="dayDay8">(8)</span></button>
-			<td><button class="monthButton" id="day9"><span class="dayDay" id="dayDay9">(9)</span></button>
-			<td><button class="monthButton" id="day10"><span class="dayDay" id="dayDay10">(10)</span></button>
-			<td><button class="monthButton" id="day11"><span class="dayDay" id="dayDay11">(11)</span></button>
-			<td><button class="monthButton" id="day12"><span class="dayDay" id="dayDay12">(12)</span></button>
-			<td><button class="monthButton" id="day13"><span class="dayDay" id="dayDay13">(13)</span></button>
-			<td><button class="monthButton" id="day14"><span class="dayDay" id="dayDay14">(14)</span></button>
-		</tr>
-		<tr>
-			<td><button class="monthButton" id="day15"><span class="dayDay" id="dayDay15">(15)</span></button>
-			<td><button class="monthButton" id="day16"><span class="dayDay" id="dayDay16">(16)</span></button>
-			<td><button class="monthButton" id="day17"><span class="dayDay" id="dayDay17">(17)</span></button>
-			<td><button class="monthButton" id="day18"><span class="dayDay" id="dayDay18">(18)</span></button>
-			<td><button class="monthButton" id="day19"><span class="dayDay" id="dayDay19">(19)</span></button>
-			<td><button class="monthButton" id="day20"><span class="dayDay" id="dayDay20">(20)</span></button>
-			<td><button class="monthButton" id="day21"><span class="dayDay" id="dayDay21">(21)</span></button>
-		</tr>
-		<tr>
-			<td><button class="monthButton" id="day22"><span class="dayDay" id="dayDay22">(22)</span></button>
-			<td><button class="monthButton" id="day23"><span class="dayDay" id="dayDay23">(23)</span></button>
-			<td><button class="monthButton" id="day24"><span class="dayDay" id="dayDay24">(24)</span></button>
-			<td><button class="monthButton" id="day25"><span class="dayDay" id="dayDay25">(25)</span></button>
-			<td><button class="monthButton" id="day26"><span class="dayDay" id="dayDay26">(26)</span></button>
-			<td><button class="monthButton" id="day27"><span class="dayDay" id="dayDay27">(27)</span></button>
-			<td><button class="monthButton" id="day28"><span class="dayDay" id="dayDay28">(28)</span></button>
-		</tr>
-		<tr>
-			<td><button class="monthButton" id="day29"><span class="dayDay" id="dayDay29">(29)</span></button>
-			<td><button class="monthButton" id="day30"><span class="dayDay" id="dayDay30">(30)</span></button>
-			<td><button class="monthButton" id="day31"><span class="dayDay" id="dayDay31">(31)</span></button>
-			<td><button class="monthButton" id="day32"><span class="dayDay" id="dayDay32">(32)</span></button>
-			<td><button class="monthButton" id="day33"><span class="dayDay" id="dayDay33">(33)</span></button>
-			<td><button class="monthButton" id="day34"><span class="dayDay" id="dayDay34">(34)</span></button>
-			<td><button class="monthButton" id="day35"><span class="dayDay" id="dayDay35">(35)</span></button>
-		</tr>
-		<tr>
-			<td><button class="monthButton" id="day36"><span class="dayDay" id="dayDay36">(36)</span></button>
-			<td><button class="monthButton" id="day37"><span class="dayDay" id="dayDay37">(37)</span></button>
-			<td><button class="monthButton" id="day38"><span class="dayDay" id="dayDay38">(38)</span></button>
-			<td><button class="monthButton" id="day39"><span class="dayDay" id="dayDay39">(39)</span></button>
-			<td><button class="monthButton" id="day40"><span class="dayDay" id="dayDay40">(40)</span></button>
-			<td><button class="monthButton" id="day41"><span class="dayDay" id="dayDay41">(41)</span></button>
-			<td><button class="monthButton" id="day42"><span class="dayDay" id="dayDay42">(42)</span></button>
-		</tr>
-	</table>
-<hr>
-	<p id="debug" style="text-align:center">TEST</p>
-	
-</body>
-
-
-<script src="CalendarJava.js"></script>
-
-</html>
-
-    
->>>>>>> a429474c223ece56ff3fa33c38f9bf09fe05080b
