@@ -7,7 +7,7 @@
     <author email="support@phonegap.com" href="http://phonegap.com">
         PhoneGap Team
     </author>
-	<plugin name="cordova-plugin-contacts" source="npm"/>
+	<plugin name="cordova-plugin-contacts" spec="3.0.1" />
     <content src="index.html" />
     <access origin="*" />
 </widget>
