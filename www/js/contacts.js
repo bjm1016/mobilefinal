@@ -2,12 +2,13 @@ document.addEventListener("deviceready",onready,false);
 
 function onready()
 {
-	document.getElementById("saveInfo").onclick = saveContact;
+	
 	window.alert("PageLoaded");
 }
 
 function saveContact()
 {
+	window.alert("Pressed");
 	var contact = navigator.contacts.create();
 	var numbers = [];
 	numbers[0] = new ContactField('work',document.getElementById("workNumber").value,false);
