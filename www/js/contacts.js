@@ -1,8 +1,12 @@
+window.onload = function(){
+	document.getElementById("saveInfo").onclick = saveContact;
+}
+
 document.addEventListener("deviceready",onready,false);
 
 function onready
 {
-	document.getElementById("saveInfo").onclick = saveContact;
+	
 }
 
 function saveContact()
