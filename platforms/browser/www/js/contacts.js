@@ -35,7 +35,7 @@ function search()
 	window.alert("Search Ended");
 }
 
-function foundContacts()
+function foundContacts(contacts)
 {
 	var endString = "";
 	for (var i = 0; i < contacts.length; i++)
