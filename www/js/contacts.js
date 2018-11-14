@@ -1,14 +1,12 @@
 document.addEventListener("deviceready",onready,false);
 
-function onready()
+function onready
 {
-	
-	window.alert("PageLoaded");
+	document.getElementById("saveInfo").onclick = saveContact;
 }
 
 function saveContact()
 {
-	window.alert("Pressed");
 	var contact = navigator.contacts.create();
 	var numbers = [];
 	numbers[0] = new ContactField('work',document.getElementById("workNumber").value,false);
@@ -18,5 +16,6 @@ function saveContact()
 	contact.name = document.getElementById("firstName").value + " " + document.getElementById("lastName").value;
 	contact.displayName = document.getElementById("firstName").value + " " + document.getElementById("lastName").value;
 	contact.save();
-	this.innerHTML = "Pushed";
+	alert("Save button pushed");
+	document.write("done");
 }
