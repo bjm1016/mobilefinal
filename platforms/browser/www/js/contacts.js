@@ -30,8 +30,16 @@ function search()
 	var options = new ContactFindOptions();
 	options.filter = document.getElementById("searchBox").value;
 	options.multiple = true;
-	var filter = ["displayName"];
-	navigator.contacts.find(filter, foundContacts, failMsg, options);
+	var filter = ["name"];
+	navigator.contacts.find(filter, function(){
+		var endString = "";
+		for (var i = 0; i < contacts.length; i++)
+		{
+			endString += contacts[i].displayName;
+		}
+		window.alert("End of foundContacts()");
+		document.getElementById("searchResults").innerHTML = endString;
+	}, failMsg, options);
 }
 
 function foundContacts()
