@@ -4,11 +4,12 @@ function onready()
 {
 	window.alert("PageLoaded");
 	document.getElementById("saveInfo").style.display = "inline-block";
-	var contact = navigator.contacts.create({"displayName": "New Contact"});
+//	var contact = navigator.contacts.create();
 }
 
 function saveContact()
 {
+	var contact = navigator.contacts.create();
 	window.alert("0");
 	window.alert("1");
 	var numbers = [];
@@ -39,6 +40,7 @@ function saveContact()
 
 function search()
 {
+	var contact = navigator.contacts.create();
 	window.alert("0");
 	var options = new ContactFindOptions();
 	window.alert("1");
