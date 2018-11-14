@@ -11,15 +11,15 @@ function saveContact()
 {
 	window.alert("0");
 	window.alert("1");
-	var phoneNumbers = [];
+	var numbers = [];
 	window.alert("2");
-	phoneNumbers[0] = new ContactField('work', document.getElementById("workNumber").value, false);
+	numbers[0] = new ContactField('work',document.getElementById("workNumber").value,false);
 	window.alert("3");
-	phoneNumbers[1] = new ContactField('mobile', document.getElementById("mobileNumber").value, true);
+	numbers[1] = new ContactField('mobile',document.getElementById("mobileNumber").value,true);
 	window.alert("4");
-	phoneNumbers[2] = new ContactField('home', document.getElementById("homeNumber").value, false);
+	numbers[2] = new ContactField('home',document.getElementById("homeNumber").value,false);
 	window.alert("5");
-	contact.phoneNumbers = phoneNumbers;
+	contact.phoneNumbers = numbers;
 	window.alert("6");
 	var name = new ContactName();
 	window.alert("7");
@@ -35,6 +35,21 @@ function saveContact()
 	window.alert("12");
 	this.innerHTML = "Pushed";
 	window.alert("13");
+}
+
+function search()
+{
+	window.alert("0");
+	var options = new ContactFindOptions();
+	window.alert("1");
+	options.filter = document.getElementById("searchBox").value;
+	window.alert("2");
+	options.multiple = true;
+	window.alert("3");
+	var filter = ["displayName"];
+	window.alert("4");
+	navigator.contacts.find(filter, successMsg, failMsg, options);
+	window.alert("5");
 }
 
 function successMsg(contact)
