@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+
+	<style>
+		#saveInfo
+		{
+			display:none;
+		}
+	</style>
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
@@ -15,7 +23,7 @@
 		<input type="text" id="mobileNumber" value="1234567890">Mobile number <br>
 		<input type="text" id="homeNumber">Home number <br>
 		<br>
-		<button onclick="saveInfo()" id="saveInfo">Save Contact Info</button>
+		<button onclick="saveContact()" id="saveInfo">Save Contact Info</button>
 		<hr>
 		<h2>Search Contacts</h2>
 		<input type="text" id="searchBox">Search string <br>

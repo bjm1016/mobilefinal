@@ -2,8 +2,8 @@ document.addEventListener("deviceready",onready,false);
 
 function onready()
 {
-	
 	window.alert("PageLoaded");
+	document.getElementById("saveInfo").style.display = "inline-block";
 }
 
 function saveContact()
