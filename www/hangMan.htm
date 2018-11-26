@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- word list from Gettyburg Address (should build a tool to create the list from text box input) -->
+<!-- Translate was intended to do a simple translation so players can't cheat quite so trivially -->
+<html>
+<head>
+<title>hang man</title>
+<style>
+#startEndImg
+{
+	border: 2px solid black;
+	width: 100%;
+}
+#startEnd
+{
+	text-align:center;
+	width:100%
+	display:block;
+}
+#gameArea
+{
+	padding: 10px;
+	background-color: #cccccc;
+	width: 100%;
+	height: 90%;
+	float: left;
+	border: 2px solid black;
+	display:none;
+}
+#gallows
+{
+	width:75%;
+	height:auto;
+	border: 5px solid darkBlue;
+}
+span
+{
+    margin: 3px;
+}
+#footer
+{
+	text-align:center;
+	background-color:gray;
+	color:white;
+	height:10%;
+	width:100%;
+	position:fixed;
+	left:0;
+	bottom:0;
+}
+#footer span
+{
+	display:inline-block;
+	vertical-align:middle;
+	font-size:2em;
+	line-height:5em;
+}
+#gameMessage
+{
+	font-size:4em;
+}
+#newGameButton
+{
+	display:inline-block;
+	width:80%;
+	height:10%;
+	margin-left:auto;
+	margin-right:auto;
+	font-size:4em;
+	font-family:arial;
+	color:red;
+	background-color:#e8e8e8;
+}
+.letterButtons
+{
+	display:inline-block;
+	width:7%;
+	height:100px;
+	border-color:darkGreen;
+	background-color:red;
+	margin:3px;
+	padding:0px;
+	font-size:2em;
+	color:yellow;
+}
+#letters
+{
+	height:100%;
+}
+.feedbackClass
+{
+	font-size:5em;
+}
+</style>
+<script>
+var MAX_WORD_LENGTH = 15;
+var picNum = 1;
+var LTRS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var words = ["a", "above", "Abraham", "add", "advanced", "ago", "all", "altogether", 
+"and", "any", "are", "as", "battlefield", "be", "before", "birth", "brave", "brought", 
+"but", "by", "can", "cause", "civil", "come", "conceived", "consecrate", "consecrated", 
+"continent", "created", "dead", "dedicate", "dedicated", "detract", "devotion", "did", 
+"died", "do", "earth", "endure", "engaged", "equal", "far", "fathers", "field", 
+"final", "fitting", "for", "forget", "forth", "fought", "Four", "freedom", "from", 
+"full", "gave", "God", "government", "great", "ground", "hallow", "have", "here", 
+"highly", "honored", "in", "increased", "is", "It", "larger", "last", "Liberty", 
+"Lincoln", "little", "live", "lives", "living", "long", "measure", "men", "met", 
+"might", "nation", "never", "new", "nobly", "nor", "not", "note", "Now", "of", "on", 
+"or", "our", "people", "perish", "place", "poor", "portion", "power", "proper", 
+"proposition", "rather", "remaining", "remember", "resolve", "resting", "say", "score", 
+"sense", "seven", "shall", "should", "so", "struggled", "take", "task", "testing", 
+"that", "the", "their", "these", "they", "this", "those", "thus", "to", "under", 
+"unfinished", "us", "vain", "war", "we", "what", "whether", "which", "who", "will", 
+"work", "world", "years"];
+var guessed = "";
+var remaining = 0;
+var clicksAllowed = false;
+var series = 1;
+
+function cheat()
+{
+for(var i=0; i<word.length; i++)
+			   if(document.getElementById(i).innerHTML == "_") {
+    		   document.getElementById(i).style.color = "green";
+    			 document.getElementById(i).innerHTML = word.charAt(i);
+				 }
+	win();
+}
+function translate(word) {
+    return word;
+}
+
+function randomInt(low, high) {
+    return Math.floor(Math.random() * (high-low+1) + low);
+}
+
+function displayMsg( str, secs) {
+    document.getElementById("instruct").innerHTML = str;
+		document.getElementById("instruct").style.display = "block";
+		if (secs > 0)
+		    setTimeout("clearDisplay()", secs* 1000);
+}
+
+function clearDisplay() {
+   document.getElementById("instruct").innerHTML = "";
+	 document.getElementById("instruct").style.display = "none";
+}
+
+function selected(ltr) {
+    if (!clicksAllowed)
+		    return;
+				
+		if (guessed.indexOf(ltr) == -1) {
+		  guessed += ltr;
+			
+      var loc = word.indexOf(ltr);
+			if (loc == -1) { // not found
+  		    picNum++;
+					document.getElementById("gallows").src =  "imgs/series" + series + picNum + ".png";
+					wrongGuesses += ltr;
+					if (picNum == 9) {
+						  lose();
+							}
+  				}
+  		else { // matched at least once
+			   for(var i=loc; i<word.length; i++)
+				     if (word.charAt(i) == ltr) {
+						     remaining--;
+					       document.getElementById(i).innerHTML = ltr;
+								 }
+  				}
+  				
+  		if (remaining == 0)
+          win();
+  		else { //continue with game
+  		    
+  				}
+		}
+		else
+		   displayMsg("You already guessed " + ltr, 2);
+}
+
+function lose() {
+	    clicksAllowed = false;
+			var msg = "Wrong guesses: " + wrongGuesses + "<br>" + "Sorry, you lose. And me too.";
+			displayMsg(msg, 0);
+			document.getElementById("gallows").style.borderColor = "crimson";
+			document.getElementById("instruct").style.backgroundColor = "lightPink";
+			document.getElementById("startEndImg").src = "imgs/lose.jpg";
+			document.getElementById("startEndImg").style.borderColor = "crimson";
+			document.getElementById("replay").style.display = "inline";
+			displayMissing();
+}
+
+function displayMissing() {
+			for(var i=0; i<word.length; i++)
+			   if(document.getElementById(i).innerHTML == "_") {
+    		   document.getElementById(i).style.color = "darkRed";
+    			 document.getElementById(i).innerHTML = word.charAt(i);
+				 }
+}
+
+function win() {
+    displayMsg("Great, we both win. Thanks!", 0);
+		clicksAllowed = false;
+	  document.getElementById("gallows").style.borderColor = "darkGreen";
+	  document.getElementById("instruct").style.backgroundColor = "lightGreen";
+		document.getElementById("startEndImg").src = "imgs/win.jpg";
+		document.getElementById("startEndImg").style.borderColor = "darkGreen";
+		document.getElementById("replay").style.display = "inline";
+}
+
+function startUp() {
+    word = words[randomInt(0,words.length-1)];
+		if (word.length > MAX_WORD_LENGTH) {
+		   alert("word was too long, truncating to " + MAX_WORD_LENGTH + " chars");
+			 word = word.substring(0,MAX_WORD_LENGTH);
+			 }
+		word = word.toUpperCase();
+		word = translate(word);
+		
+		for(var i=0; i<word.length; i++) {
+		   document.getElementById(i).style.display = "inline";
+			 document.getElementById(i).innerHTML = "_";
+			 }
+		for(i=word.length; i<MAX_WORD_LENGTH; i++)
+		   document.getElementById(i).style.display = "none"; 
+		
+		picNum = 1;
+		guessed = "";
+		remaining = word.length;
+		displayMsg("<i>select letters</i>", 3);
+		clicksAllowed = true;
+		wrongGuesses = "";
+}
+
+function newGame()
+{
+	document.getElementById("startEnd").style.display = "none";
+	document.getElementById("gameArea").style.display = "block";
+	document.getElementById("cheat").style.display = "block";
+
+}
+</script>
+</head>
+<body>
+<div id="startEnd">
+  <img id="startEndImg" src="imgs/play.jpg" alt="splash image">
+  <div id="gameMessage">Play If You Dare..</div>
+  <button id="newGameButton">New Game</button>
+</div>
+
+<div id="gameArea" style="text-align:center">
+  <img id="gallows" src="imgs/series31.png" alt="1 of 9" height="100">
+	<div id="feedback">
+	<p>
+	<!-- maximum word length is 15 -->
+	<span class="feedbackClass" id="0">_</span>
+	<span class="feedbackClass" id="1">_</span>
+	<span class="feedbackClass" id="2">_</span>
+	<span class="feedbackClass" id="3">_</span>
+	<span class="feedbackClass" id="4">_</span>
+	<span class="feedbackClass" id="5">_</span>
+	<span class="feedbackClass" id="6">_</span>
+	<span class="feedbackClass" id="7">_</span>
+	<span class="feedbackClass" id="8">_</span>
+	<span class="feedbackClass" id="9">_</span>
+	<span class="feedbackClass" id="10">_</span>
+	<span class="feedbackClass" id="11">_</span>
+	<span class="feedbackClass" id="12">_</span>
+	<span class="feedbackClass" id="13">_</span>
+	<span class="feedbackClass" id="14">_</span>
+	</p>
+	</div>
+	
+	<div id="letters">
+	<P>
+	<script>
+	  for(var i=0; i<LTRS.length; i++) {
+		  document.write("<button class='letterButtons' onclick=\"selected('" + LTRS.charAt(i) + "');\" onmouseover=\"this.style.outline='#47A347 solid 2px'\" onmouseout=\"this.style.outline='none'\" background-color:#193e19; color:#ffffff;\">");
+      document.write(LTRS.charAt(i) + "</button>");
+			if (i == 12)
+			   document.write("<br>");
+			}
+	</script>
+	</p>
+		<p>
+  <h2>My destiny is in you're hands.<br>Choose carefully, <i>please!!</i></h2>
+  </p>
+	<p id="instruct" style="padding:5px;margin:5px;background-color:lightyellow">
+	&nbsp;
+	</p>
+	<input id="replay" type="button" id="start" value="play again" onclick="location.reload();" style="display:none">
+	</div>
+
+
+</div>
+
+<div id="footer"><span>Ported By:  Jonathan Bellotti && Braden MacBeth</span><br><input id="cheat" type="button" value="Cheat" onclick="cheat()" style="display:none"></div>
+
+<script>
+	series = randomInt(1,3);
+	document.getElementById("gallows").src = "imgs/series" + series + "1.png";
+	picNum = 1;
+	var KEY = "QWERTYUIOPASDFGHJKLZXCVBNM";
+	startUp();
+	
+	document.getElementById("newGameButton").onclick = newGame;
+	
+</script>
+</body>
+</html>
