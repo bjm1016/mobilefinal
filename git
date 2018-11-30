@@ -1,0 +1,8 @@
+#!/usr/bin/expect -f
+set timeout -1
+spawn ./.expectPushGit [lindex $argv 0]
+expect "Username for"
+send -- "Ghostmij17\r"
+expect "Password for"
+send -- "FishIzzle_1342!78\r"
+expect eof

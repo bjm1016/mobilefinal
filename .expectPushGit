@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ $1 == "push" ]
+then
+	git push
+elif [ $1 == "pull" ]
+then
+	git pull
+else
+	echo Argument options are either \'push\' or \'pull\'
+fi

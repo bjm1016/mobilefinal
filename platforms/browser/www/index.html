@@ -1,33 +1,47 @@
 <!DOCTYPE html>
 <html>
-
-	<style>
-		#saveInfo
-		{
-			display:none;
-		}
-	</style>
-
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-        <title>Blank App</title>
-		<script type="text/javascript" src="js/contacts.js"></script>
-    </head>
-    <body>
-        <script type="text/javascript" src="cordova.js"></script>
-		<h2>Add a Contact</h2>
-		<input type="text" id="firstName" value="Aardvark">First name <br>
-		<input type="text" id="lastName" value="Anteater">Last name <br>
-		<input type="text" id="workNumber" value="098-765-4321">Work number <br>
-		<input type="text" id="mobileNumber" value="123-456-7890">Mobile number <br>
-		<input type="text" id="homeNumber" value="456-789-0123">Home number <br>
-		<br>
-		<button onclick="saveContact()" id="saveInfo">Save Contact Info</button>
-		<hr>
-		<h2>Search Contacts</h2>
-		<input type="text" id="searchBox">Search string <br>
-		<button onclick="search()" id="searchButton">Search</button>
-		<div id="searchResults"></div>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <script src="js/onload.js"></script>
+	<script src="js/pagecontrol.js"></script>
+	<link rel="stylesheet" href="css/style.css">
+	<title>SRU</title>
+</head>
+<body>
+    <script type="text/javascript" src="cordova.js"></script>
+	
+	<div id="topBuff"></div>
+	
+	<div id="navMenuClosed">
+		<button class="navButton" id="openMenu">MENU</button>
+	</div>
+	<div id="navMenu">
+		<ul>
+			<li><button class="navButton" id="closeMenu">CLOSE</button>
+			<li><button class="navButton">Main</button></li>
+			<li><button class="navButton">Entertainment</button></li>
+			<li><button class="navButton">Restaurants</button></li>
+			<li><button class="navButton">Outdoor</button></li>
+			<li><button class="navButton">Shopping</button></li>
+			<li><button class="navButton">Cannot-Miss</button></li>
+		</ul>
+	</div>
+	
+	<div class="page" id="main">
+		<h1>Slippery Rock</h1>
+		<h2>and surrounding areas</h2>
+		<p>Slippery Rock University is located right in the middle of Slippery Rock and breathes
+			life into the community.</p>
+	</div>
+	
+	<div class="page" id="entertainment">
+		<h1>Entertainment</h1>
+	</div>
+	
+	<div class="page" id="restaurants">
+		<h1>Restaurants</h1>
+	</div>
+	
+</body>
 </html>
