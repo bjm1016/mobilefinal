@@ -24,3 +24,8 @@ function closeMenu()
 {
 	document.getElementById("navMenu").style.display = "none";
 }
+
+function loadMoreInfo()
+{
+	
+}

@@ -1,7 +1,7 @@
 document.addEventListener("deviceready",function(){
 	
 	var elementArray = document.getElementsByClassName("navButton");
-	for (i = 0; i < elementArray.length; i++)
+	for (var i = 0; i < elementArray.length; i++)
 	{
 		elementArray[i].onclick = changePage;
 	}
@@ -9,8 +9,14 @@ document.addEventListener("deviceready",function(){
 	document.getElementById("closeMenu").onclick = closeMenu;
 	document.getElementById("openMenu").onclick = openMenu;
 	
+	elementArray = document.getElementsByClassName("moreInfoButton");
+	for (var i = 0; i < elementArray.length; i++)
+	{
+		elementArray[i].onclick = loadMoreInfo;
+	}
+	
 	elementArray = document.getElementsByClassName("page");
-	for (i = 0; i < elementArray.length; i++)
+	for (var i = 0; i < elementArray.length; i++)
 	{
 		elementArray[i].style.display = "none";
 	}
