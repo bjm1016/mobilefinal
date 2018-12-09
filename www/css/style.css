@@ -17,10 +17,18 @@ p
 	margin:2%;
 }
 
-body
-{
-	margin:0;
+body {
+	font-size: 11px;
+	min-width: 100%;
+	align-items: center;
+	background: #E7E3E7;
+	padding-top: 50px;
+	margin-bottom: 82px;
+	font-style: normal;
+	line-height: 1.4;
+	font-family: Arial, Helvetica, Verdana, sans-serif;
 }
+
 
 .page
 {
