@@ -3,8 +3,48 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <script src="js/onload.js"></script>
+    
+	<script src="js/onload.js"></script>
 	<script src="js/pagecontrol.js"></script>
+	<script type="text/javascript">
+		function initMap() {
+			// The location of Uluru
+			//var uluru = { lat: 41.0692555, lng: -80.0513215}; // Cofarros
+			//var uluru = { lat: 40.9220726, lng: -79.9459312}; // Starlight drive-in
+			//var uluru = { lat: 41.06232, lng: -80.054812 }; //ginger hill tavern
+			//var uluru = { lat: 41.0622617, lng: -80.0548361 }; //yumberries
+
+
+			//var uluru = { lat: 41.0616338, lng: -80.0545281}; //post office
+			//var uluru = { lat: 41.040298, lng: -80.0785428}; //Oakview golf club
+
+			//var uluru = { lat: 40.9086242, lng: -80.0051045}; //Frank W Preston Conservation Area
+			//var uluru = { lat: 40.8818936, lng: -80.0294804}; //Morraine State Park
+
+			// The map, centered at Uluru
+			//var map = new google.maps.Map(
+				//document.getElementById('map'), { zoom: 4, center: uluru });
+			// The marker, positioned at Uluru
+			//var marker = new google.maps.Marker({ position: uluru, map: map });
+		}
+
+		function displayMap(lat, lng, id)
+		{
+			var uluru = { lat: lat, lng: lng }; //yumberries
+
+			var map = new google.maps.Map(
+				document.getElementById(id), { zoom: 4, center: uluru });
+			// The marker, positioned at Uluru
+			var marker = new google.maps.Marker({ position: uluru, map: map });
+
+
+		}
+
+	</script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz2biz-5RZdsF_WCC_zsIFBG110TJGOR0&callback=displayMap">
+	</script>
+
 	<style>
 		#map {
 			height: 400px; /* The height is 400 pixels */
@@ -44,35 +84,11 @@
 	<div class="page" id="entertainment">
 		<h1>Entertainment</h1>
 		<ul>
-			<li><button class="moreInfoButton">Starlight Drive-In</button>
-			<li><button class="moreInfoButton">Cofarro's Pizza and Bowling y</button></li>
+			<li><button class="moreInfoButton" onclick="displayMap(40.9220726, -79.9459312, 'map')">Starlight Drive-In</button></li>
+			<li><button class="moreInfoButton" onclick="displayMap(41.0692555, -80.0513215, 'map')">Cofarro's Pizza and Bowling</button></li>
 		<div id="map"></div>	
-		<script>
-				// Initialize and add the map
-				function initMap() {
-					// The location of Uluru
-					//var uluru = { lat: 41.0692555, lng: -80.0513215}; // Cofarros
-					//var uluru = { lat: 40.9220726, lng: -79.9459312}; // Starlight drive-in
-					//var uluru = { lat: 41.06232, lng: -80.054812 }; //ginger hill tavern
-					var uluru = { lat: 41.0622617, lng:-80.0548361 }; //yumberries
-
-
-				    //var uluru = { lat: 41.0616338, lng: -80.0545281}; //post office
-				    //var uluru = { lat: 41.040298, lng: -80.0785428}; //Oakview golf club
-
-			       //var uluru = { lat: 40.9086242, lng: -80.0051045}; //Frank W Preston Conservation Area
-				   //var uluru = { lat: 40.8818936, lng: -80.0294804}; //Morraine State Park
-
-					// The map, centered at Uluru
-					var map = new google.maps.Map(
-						document.getElementById('map'), { zoom: 4, center: uluru });
-					// The marker, positioned at Uluru
-					var marker = new google.maps.Marker({ position: uluru, map: map });
-				}
-			</script>
-			<script async defer
-					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz2biz-5RZdsF_WCC_zsIFBG110TJGOR0&callback=initMap">
-			</script>
+	
+			
 
 		</ul><!---->
 	</div>

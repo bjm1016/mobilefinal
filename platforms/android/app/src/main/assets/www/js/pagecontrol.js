@@ -5,7 +5,7 @@ function changePage()
 	{
 		if (this.innerHTML.toLowerCase() == elementArray[i].id)
 		{
-			elementArray[i].style.display = "block";
+			elementArray[i].style.display= "block";
 		}
 		else
 		{
@@ -17,12 +17,20 @@ function changePage()
 
 function openMenu()
 {
-	document.getElementById("navMenu").style.display = "block";
+//    document.getElementById("navMenu").style.display = "block";
+    var elementArray = document.getElementsByClassName("navMenu navList");
+    for (var i = 0; i < elementArray.length; i++)
+    {
+        elementArray[i].style.display = "block";
+    }
+    document.getElementById("navMenu").style.height = "50%";
+
 }
 
 function closeMenu()
 {
-	document.getElementById("navMenu").style.display = "none";
+//    document.getElementById("navMenu").style.display = "none";
+	document.getElementById("navMenu").style.height = "0";
 }
 
 function loadMoreInfo()

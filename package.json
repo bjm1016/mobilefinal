@@ -4,8 +4,10 @@
   "displayName": "sruapp",
   "cordova": {
     "platforms": [
-      "android"
-    ]
+      "android",
+      "browser"
+    ],
+    "plugins": {}
   },
   "dependencies": {
     "cordova-android": "~7.1.4",

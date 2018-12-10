@@ -12,7 +12,7 @@ document.addEventListener("deviceready",function(){
 	elementArray = document.getElementsByClassName("moreInfoButton");
 	for (var i = 0; i < elementArray.length; i++)
 	{
-		elementArray[i].onclick = loadMoreInfo;
+		//elementArray[i].onclick = loadMoreInfo;
 	}
 	
 	elementArray = document.getElementsByClassName("page");
