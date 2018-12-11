@@ -6,7 +6,15 @@
     
 	<script src="js/onload.js"></script>
 	<script src="js/pagecontrol.js"></script>
-	<script type="text/javascript">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>	
+    
+    <script type="text/javascript">
+
+        function display(obj)
+            {
+            obj.style.display = "block";
+             }
 		function initMap() {
 			// The location of Uluru
 			//var uluru = { lat: 41.0692555, lng: -80.0513215}; // Cofarros
@@ -84,7 +92,9 @@
 	<div class="page" id="entertainment">
 		<h1>Entertainment</h1>
 		<ul>
-			<li><button class="moreInfoButton" onclick="displayMap(40.9220726, -79.9459312, 'map')">Starlight Drive-In</button></li>
+              
+			<li><button class="moreInfoButton" onclick="display(40.9220726, -79.9459312, 'map')" onclick="display(this)">Starlight Drive-In</button></li>    
+            <div id="area-content"><div id="starlight">Hello</div>
 			<li><button class="moreInfoButton" onclick="displayMap(41.0692555, -80.0513215, 'map')">Cofarro's Pizza and Bowling</button></li>
 		<div id="map"></div>	
 	

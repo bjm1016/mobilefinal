@@ -28,6 +28,9 @@ body {
 	font-family: Arial, Helvetica, Verdana, sans-serif;
 }
 
+#area-content{
+    display: none;
+}
 #topBuff{
     display: none;
 }

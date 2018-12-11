@@ -17,7 +17,7 @@ function changePage()
 
 function openMenu()
 {
-//    document.getElementById("navMenu").style.display = "block";
+   document.getElementById("navMenu").style.display = "block";
     var elementArray = document.getElementsByClassName("navMenu navList");
     for (var i = 0; i < elementArray.length; i++)
     {
@@ -29,7 +29,7 @@ function openMenu()
 
 function closeMenu()
 {
-//    document.getElementById("navMenu").style.display = "none";
+    document.getElementById("navMenu").style.display = "none";
 	document.getElementById("navMenu").style.height = "0";
 }
 
