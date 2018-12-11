@@ -5,6 +5,9 @@ h1
 	font-size:5vh;
 }
 
+.map{
+	display: inherit;
+}
 h2
 {
 	font-size:3.5vh;
@@ -115,4 +118,8 @@ li
 	margin:0;
 	padding:0;
 	height:15%;
+}
+
+.loc-content{
+	display: none;
 }
