@@ -122,4 +122,14 @@ li
 
 .loc-content{
 	display: none;
+	align-content: center;
+}
+
+img.loc-content{
+	max-height: 30%;
+	max-width: 80%;
+	
+	align-content: center;
+	align: center;
+	display: inherit;
 }

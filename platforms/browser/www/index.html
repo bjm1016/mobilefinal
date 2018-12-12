@@ -18,7 +18,10 @@
 			console.log(lastDisplayed);
 			if (lastDisplayed != "")
 			{
-				document.getElementById(lastDisplayed).style.display = "none";
+				if (lastDisplayed != obj)
+					{
+					document.getElementById(lastDisplayed).style.display = "none";
+					}
 			}
 			lastDisplayed = obj;
 		}
@@ -62,6 +65,8 @@
 
 	<style>
 		.map {
+			max-height: 30%;
+			max-width: 80%;
 			height: 400px; /* The height is 400 pixels */
 			width: 100%; /* The width is the width of the web page */
 			display: inherit;
@@ -120,6 +125,14 @@
 			<div id="cofmap" class="map"></div>
 			
 			</div>
+
+
+			<li><button class="moreInfoButton" onclick="display('srufootballfield')">SRU Football Stadium</button></li>
+			<div id="srufootballfield" class="loc-content">
+				Hello
+				<br />
+				<img class="loc-content" src="images/footballfield.PNG" />
+			</div>
 		</ul><!---->
 	</div>
 	
@@ -146,6 +159,13 @@
 			<div id="yummap" class="map"></div>
 
 		</div>
+
+		<li><button class="moreInfoButton" onclick="display('boozel')">SRU Boozel Dining Hall</button></li>
+		<div id="boozel" class="loc-content">
+			Hello
+			<br />
+			<img class="loc-content" src="images/boozeldininghall.PNG" />
+		</div>
 	</div>
 	
 	<!-- OUTDOORS -->
@@ -169,6 +189,14 @@
 
 			<div id="morrainemap" class="map"></div>
 
+		</div>
+
+
+		<li><button class="moreInfoButton" onclick="display('sportsfields')">SRU Sports Fields</button></li>
+		<div id="sportsfields" class="loc-content">
+			Hello
+			<br />
+			<img class="loc-content" src="images/srusportsfields.PNG" />
 		</div>
 	</div>
 	
@@ -195,6 +223,13 @@
 			<div id="drugmap" class="map"></div>
 
 		</div>
+
+		<li><button class="moreInfoButton" onclick="display('srubookstore')">SRU Bookstore</button></li>
+		<div id="srubookstore" class="loc-content">
+			Hello
+			<br />
+			<img class="loc-content" src="images/srubookstore.PNG" />
+		</div>
 	</div>
 	
 
@@ -214,13 +249,22 @@
 		<li><button class="moreInfoButton" onclick="display('sru'); displayMap(41.0616834, -80.0447116, 'universitygmap'); ">Slippery Rock University</button></li>
 
 		<div id="sru" class="loc-content">
-			
+
 			<br />
 
 			<div id="universitygmap" class="map"></div>
 
 		</div>
+		<li><button class="moreInfoButton" onclick="display('sruats')">SRU Advanced Technology and Science Hall</button></li>
+		<div id="sruats" class="loc-content">
+			Hello
+			<br />
+			<img class="loc-content" src="images/sruats.PNG" />
+		</div>
 	</div>
+	</div>
+
+	
 	
 
 
